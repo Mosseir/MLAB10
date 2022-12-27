@@ -3,7 +3,8 @@
 using namespace std;
 
 int main(){	
-	double loan , rate , amount;
+	double loan , rate , amount , total, interest;
+	int i =0;
 	cout << "Enter initial loan: ";
 	cin >> loan;
 	cout << "Enter interest rate per year (%): ";
@@ -26,14 +27,21 @@ int main(){
 
 	//use 'fixed' and 'setprecision' to fix the number of decimal digits for displaying
 	//you can change input argument of 'setprecision()' to see the effect
+	while(loan > 0){
+	interest = loan*(rate/100);
+	i++;
+	total = loan + interest;
+	if(total< amount){
 	cout << fixed << setprecision(2);
-	cout << setw(13) << left << 1; 
-	cout << setw(13) << left << 1000.0;
-	cout << setw(13) << left << 50.0;
-	cout << setw(13) << left << 1050.0;
-	cout << setw(13) << left << 100.0;
-	cout << setw(13) << left << 950.0;
-	cout << "\n";	
-	
+	cout << setw(13) << left << i; 
+	cout << setw(13) << left << loan;
+	cout << setw(13) << left << interest;
+	cout << setw(13) << left << total;
+	cout << setw(13) << left << amount;
+	cout << setw(13) << left << total-amount;
+	cout << "\n";
+	loan = total - amount;
+		}
+	}
 	return 0;
 }
