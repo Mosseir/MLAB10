@@ -28,20 +28,26 @@ int main(){
 	//use 'fixed' and 'setprecision' to fix the number of decimal digits for displaying
 	//you can change input argument of 'setprecision()' to see the effect
 	while(loan > 0){
-	interest = loan*(rate/100);
-	i++;
-	total = loan + interest;
-	if(total< amount){
-	cout << fixed << setprecision(2);
-	cout << setw(13) << left << i; 
-	cout << setw(13) << left << loan;
-	cout << setw(13) << left << interest;
-	cout << setw(13) << left << total;
-	cout << setw(13) << left << amount;
-	cout << setw(13) << left << total-amount;
-	cout << "\n";
-	loan = total - amount;
+		interest = loan*(rate/100);
+		total = loan + interest;
+				cout << fixed << setprecision(2);
+				cout << setw(13) << left << i; 
+				cout << setw(13) << left << loan;
+				cout << setw(13) << left << interest;
+				cout << setw(13) << left << total;
+				if(total<= amount){
+					amount = total ;
+					loan = total - total;
+					cout << setw(13) <<  left << amount;
+					cout << setw(13) << left << loan ;
+					break;				
+					}
+				cout << setw(13) << left << amount;
+				loan = total - amount ;
+				cout << setw(13) << left << loan;
+				cout << "\n";
+				i++;
 		}
-	}
+	
 	return 0;
 }
